@@ -43,10 +43,10 @@ exists := service.Exists("item_key")
 
 ```go
 // 存储键值对
-service.StoreIP("key", "value")
+service.Store("key", "value")
 
 // 加载值
-value := service.LoadIP("key")
+value := service.Load("key")
 ```
 
 ## 协议定义
