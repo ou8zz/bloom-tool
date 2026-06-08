@@ -20,12 +20,12 @@ go get github.com/ou8zz/bloom-tool
 ### 初始化 gRPC 客户端
 
 ```go
-import "github.com/ou8zz/bloom-tool/service"
+import "github.com/ou8zz/bloom-tool/bloomtool"
 
 func main() {
     addrs := []string{"localhost:50051", "192.168.1.100:50051"}
-    service.InitGRpcClient(addrs)
-    defer service.CloseGRpcClient()
+    bloomtool.InitGRpcClient(addrs)
+    defer bloomtool.CloseGRpcClient()
 }
 ```
 
@@ -33,20 +33,20 @@ func main() {
 
 ```go
 // 添加元素
-service.Add("item_key")
+bloomtool.Add("item_key")
 
 // 检查元素是否存在
-exists := service.Exists("item_key")
+exists := bloomtool.Exists("item_key")
 ```
 
 ### 键值对存储操作
 
 ```go
 // 存储键值对
-service.Store("key", "value")
+bloomtool.Store("key", "value")
 
 // 加载值
-value := service.Load("key")
+value := bloomtool.Load("key")
 ```
 
 ## 协议定义
