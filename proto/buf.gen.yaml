@@ -1,0 +1,9 @@
+version: v1
+plugins:
+  - plugin: go
+    out: ../pb
+    # 使用 source_relative，它会参考 proto 文件所在的相对路径
+    opt: paths=source_relative 
+  - plugin: go-grpc
+    out: ../pb
+    opt: paths=source_relative

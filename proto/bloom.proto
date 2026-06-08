@@ -1,0 +1,32 @@
+syntax = "proto3";
+
+package bloom;
+option go_package = "../pb;pb";
+
+service BloomService {
+  // 过滤
+  rpc Add (ItemRequest) returns (ItemResponse);
+  rpc Exists (ItemRequest) returns (ItemResponse);
+
+  // map 
+  rpc Store (MapRequest) returns (MapResponse);
+  rpc Load (MapRequest) returns (MapResponse);
+}
+
+message ItemRequest {
+  string key = 1;
+}
+
+message ItemResponse {
+  bool exists = 1;
+}
+
+message MapRequest {
+  string key = 1;
+  string value = 2;
+}
+
+message MapResponse {
+  bool exists = 1;
+  string value = 2;
+}
